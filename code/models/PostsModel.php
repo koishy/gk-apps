@@ -3,7 +3,7 @@
 function getPosts()
 {
     $posts = new mysqli(getconfig()['DB_HOST'], getconfig()['DB_LOGIN'], getconfig()['DB_PASSWORD'], getconfig()['DB_NAME']);
-    $res = $posts->query('SELECT * FROM posts');
+    $res = $posts->query('SELECT * FROM posts ORDER BY id DESC');
     $posts->close();
     return $res->fetch_all();
 }
